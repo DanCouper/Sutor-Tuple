@@ -11,6 +11,7 @@ test('Passing no args results in an empty tuple', t => {
 })
 
 test('Tuple is immutable; any attempt to mutate will throw whilst in strict mode', (t) => {
+  'use strict'
   t.plan(4)
   const tuple = Tuple(1,2,3)
 

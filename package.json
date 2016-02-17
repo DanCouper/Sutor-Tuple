@@ -37,6 +37,10 @@
     "faucet": "0.0.1",
     "nyc": "^5.2.0"
   },
+  "engines": {
+    "node": "> 5.0",
+    "npm": "> 3.0"
+  },
   "babel": {
     "presets": [
       "es2015",
