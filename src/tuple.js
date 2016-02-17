@@ -1,9 +1,9 @@
+  'use strict'
 /**
  * A simple tuple implementation.
  */
 export default function Tuple(...args) {
   /* For the benefit of Semaphore builds: */
-  'use strict'
   /* The tuple is represented by a frozen Array. To construct a tuple,
    * either an array of values or a list of arguments can be passed.
    * The ability to pass a list is important due to the fact that,

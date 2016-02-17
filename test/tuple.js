@@ -4,14 +4,16 @@ import 'babel-polyfill'
 
 import Tuple from '../src/tuple'
 
+'use strict'
+
 test('Passing no args results in an empty tuple', t => {
   t.plan(1)
   const input  = Tuple()
   t.same(Tuple().toStr(), `()`)
 })
 
+// NOTE I cannot get Semaphore to build and run under strict mode
 test('Tuple is immutable; any attempt to mutate will throw whilst in strict mode', (t) => {
-  'use strict'
   t.plan(4)
   const tuple = Tuple(1,2,3)
 
