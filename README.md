@@ -1,5 +1,9 @@
 # Sutor-Tuple
 
+[![Build Status](https://semaphoreci.com/api/v1/dancouper/sutor-tuple/branches/master/badge.svg)](https://semaphoreci.com/dancouper/sutor-tuple)
+
+[![Coverage Status](https://coveralls.io/repos/github/DanCouper/Sutor-Tuple/badge.svg?branch=master)](https://coveralls.io/github/DanCouper/Sutor-Tuple?branch=master)
+
 A tiny tuple implementation in JS, using frozen arrays (*WIP, very raw at the minute*).
 
 Arrays are used to represent the Tuples, as opposed to implementing by using Objects with an internal `tuple` property. This allows the tuple object to retain the standard accessor/enumeration methods, and vastly simplified both the implementation of the attached methods and the testing process.
