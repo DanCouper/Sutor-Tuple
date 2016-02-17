@@ -10,8 +10,7 @@
     "coverage": "nyc --reporter=lcov npm run ava && nyc report",
     "coveralls": "nyc npm run ava && nyc report --reporter=text-lcov | coveralls && rm -rf ./coverage",
     "lint": "eslint src/**/*.js",
-    "plato": "plato -d coverage/plato src/**/*.js",
-    "test": "ava test --tap | faucet"
+    "test": "npm run lint && ava test --tap | faucet"
   },
   "repository": {
     "type": "git"
@@ -34,8 +33,7 @@
     "coveralls": "^2.11.6",
     "eslint": "^1.10.3",
     "faucet": "0.0.1",
-    "nyc": "^5.2.0",
-    "plato": "git:https://github.com/deedubs/es6-plato.git"
+    "nyc": "^5.2.0"
   },
   "babel": {
     "presets": [
