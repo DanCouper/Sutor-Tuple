@@ -1,4 +1,3 @@
-  'use strict'
 /**
  * A simple tuple implementation.
  */
