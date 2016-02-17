@@ -56,6 +56,7 @@
       "eol-last": [0],
       "no-mixed-requires": [0],
       "no-underscore-dangle": [0],
+      "no-var": 2,
       "quotes": [0]
     }
   }
