@@ -2,7 +2,7 @@
   "name": "sutor-tuple",
   "version": "0.0.1",
   "description": "A tiny tuple implementation.",
-  "main": "src/index.js",
+  "main": "src/tuple.js",
   "scripts": {
     "ava": "ava test",
     "clean": "rm -rf coverage && rm -rf dist",
@@ -35,7 +35,7 @@
     "eslint": "^1.10.3",
     "faucet": "0.0.1",
     "nyc": "^5.2.0",
-    "plato": "github:deedubs/es6-plato"
+    "plato": "git:https://github.com/deedubs/es6-plato.git"
   },
   "babel": {
     "presets": [
