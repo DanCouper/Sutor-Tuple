@@ -91,3 +91,16 @@ test('Allows pattern matching as normal', t => {
   t.is(y, 2)
   t.is(z, 3)
 })
+
+test('Converts a date to a tuple', t => {
+  t.plan(1)
+  const input  = Tuple.fromDate(new Date(2016, 1, 18))
+  const output = [2016, 1, 18]
+  t.same(input, output)
+})
+
+test('Converts a date tuple to a date', t => {
+  t.plan(1)
+  const input = Tuple.toDate(Tuple([2016, 1, 18]))
+  t.same(input, new Date(2016, 1, 18))
+})
