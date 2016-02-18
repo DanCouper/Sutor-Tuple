@@ -13,3 +13,108 @@ The method used to build the objects is similar to that described by Doug Crockf
 Array mutator methods will fail (with an error in strict mode; if the module is compiled to ES5 & used under non-strict mode for some reason they will fail without warning). And any attempt to modify the properties directly will fail.
 
 Array enumerator methods will work fine, but note they will act as normal and return Arrays, not Tuples; I didn't think there was much point reimplementing Tuple-specific enumerator methods beyond those included.
+
+
+##  Methods
+
+### `Tuple(...args)`
+
+Returns a frozen Array, representing a Tuple. To construct the Tuple, either an array of values or a list of arguments can be passed.
+
+```
+> Tuple(1,2,3)
+[1,2,3]
+> Tuple([1,2,3])
+[1,2,3]
+> Tuple()
+[]
+```
+
+### `Tuple.duplicate(val, n)`
+
+Returns a Tuple filled with `n` of `val`.
+
+```
+> Tuple.Duplicate('foo', 3)
+['foo', 'foo', 'foo']
+```
+
+---
+
+### `.append(val)`
+
+Returns a new Tuple with the specified value appended to the original. Equivalent to `Array.prototype.push`, but returns the tuple.
+
+```
+> const t = Tuple(1,2,3)
+> t.append(4)
+[1, 2, 3, 4]
+```
+
+### `.deleteAt(index)`
+
+Returns a new Tuple, less the value at the index specified.
+
+```
+> const t = Tuple(1,2,3)
+> t.deleteAt(2)
+[1, 2]
+```
+
+### `.duplicate(val, n)`
+
+Prototype version of `Tuple.duplicate()`, allowing it to be chained to other Tuple methods. Fills an empty Tuple with `n` of `val`.
+
+```
+> const t = Tuple()
+> t.duplicate('foo', 3)
+['foo', 'foo', 'foo']
+```
+
+### `.eq(tuple2)`
+
+Checks the tuple against another tuple, returns true if all values are identical and in the same order.
+
+```
+> const t = Tuple(1,2,3)
+> t.eq(Tuple(1,2,3))
+true
+
+> t.eq(Tuple(3,2,1))
+false
+```
+
+### `.insertAt(index, val)`
+
+Returns a new Tuple, with a value added at the index specified.
+
+```
+> const t = Tuple(1,2,3)
+> t.insertAt(0,0)
+[0, 1, 2, 3]
+```
+
+### `.toArr()`
+
+Returns a proper [fully mutable] Array version of the Tuple.
+
+```
+> const t = Tuple(1,2,3)
+> t[0] = 0
+// Throws a TypeError
+
+> const a = t.toArr()
+> a[0] = 0
+> a
+[0, 2, 3]
+```
+
+### `.toStr()`
+
+Returns a string representation of the Tuple.
+
+```
+> const t = Tuple(1,2,3)
+> t.toStr()
+'(1,2,3)'
+```

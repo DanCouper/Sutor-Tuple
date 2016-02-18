@@ -72,9 +72,15 @@ test('Allows deletion of a value at a specified index, returning a new tuple', t
   t.same(input, [2,3])
 })
 
-test('Allows population of an empty tuple with values via `duplicate()`', t => {
+test('Allows population of an empty tuple with repeated values via the `duplicate()` method', t => {
   t.plan(1)
   const input  = Tuple().duplicate(3,3)
+  t.same(input, [3,3,3])
+})
+
+test('Creates a Tuple with repeated values via `Tuple.duplicate()`', t => {
+  t.plan(1)
+  const input  = Tuple.duplicate(3,3)
   t.same(input, [3,3,3])
 })
 
