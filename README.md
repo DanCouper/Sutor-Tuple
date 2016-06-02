@@ -4,7 +4,9 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/DanCouper/Sutor-Tuple/badge.svg?branch=master)](https://coveralls.io/github/DanCouper/Sutor-Tuple?branch=master)
 
-A tiny tuple implementation in JS, using frozen arrays (*WIP, very raw at the minute*).
+A tiny tuple implementation in JS, leveraging frozen arrays. May be of some use to someone. Needs work. Won't be terribly efficient. Includes translation to/from dates (that's *dates*, **not** *time* or *datetime*).
+
+## Implementation notes
 
 Arrays are used to represent the Tuples, as opposed to implementing by using Objects with an internal `tuple` property. This allows the tuple object to retain the standard accessor/enumeration methods, and vastly simplified both the implementation of the attached methods and the testing process.
 
@@ -35,8 +37,29 @@ Returns a frozen Array, representing a Tuple. To construct the Tuple, either an 
 Returns a Tuple filled with `n` of `val`.
 
 ```
-> Tuple.Duplicate('foo', 3)
+> Tuple.duplicate('foo', 3)
 ['foo', 'foo', 'foo']
+```
+
+
+### `Tuple.fromDate(date)`
+
+Given a Javascript `Date` object, returns tuple of the form `(year, month, date)`.
+
+```
+> const aDate = new Date('1986-04-25')
+> Tuple.fromDate(aDate)
+[1986, 4, 25]
+```
+
+### `Tuple.toDate(dateTuple)`
+
+Given a tuple of the form `(year, month, date)`, returns a Javascript `Date` object that matches it.
+
+```
+> const aDate = Tuple(1986, 04, 25)
+> Tuple.toDate(aDate)
+1986-04-25T00:00:00.000Z
 ```
 
 ---
@@ -118,3 +141,4 @@ Returns a string representation of the Tuple.
 > t.toStr()
 '(1,2,3)'
 ```
+

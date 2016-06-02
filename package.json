@@ -1,8 +1,8 @@
 {
   "name": "sutor-tuple",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A tiny tuple implementation.",
-  "main": "src/tuple.js",
+  "main": "dist/tuple.js",
   "scripts": {
     "ava": "ava test",
     "clean": "rm -rf coverage && rm -rf dist",
@@ -10,8 +10,10 @@
     "coverage": "nyc --reporter=lcov npm run ava && nyc report",
     "coveralls": "nyc npm run ava && nyc report --reporter=text-lcov | coveralls && rm -rf ./coverage",
     "lint": "eslint src/**/*.js",
+    "prepublish": "npm run compile",
     "test": "npm run lint && ava test --tap | faucet"
   },
+  "files": [ "dist/tuple.js" ],
   "repository": {
     "type": "git",
     "url": "https://github.com/DanCouper/Sutor-Tuple"
@@ -20,7 +22,8 @@
     "es6",
     "es2015",
     "babel",
-    "tuple"
+    "tuple",
+    "simple tuple"
   ],
   "author": "Daniel Couper <danielcouper81@googlemail.com>",
   "license": "MIT",
