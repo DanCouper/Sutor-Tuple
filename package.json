@@ -1,6 +1,6 @@
 {
   "name": "sutor-tuple",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "A tiny tuple implementation.",
   "main": "dist/tuple.js",
   "scripts": {
@@ -13,7 +13,6 @@
     "prepublish": "npm run compile",
     "test": "npm run lint && ava test --tap | faucet"
   },
-  "files": [ "dist/tuple.js" ],
   "repository": {
     "type": "git",
     "url": "https://github.com/DanCouper/Sutor-Tuple"

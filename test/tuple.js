@@ -7,7 +7,7 @@ import Tuple from '../src/tuple'
 test('Passing no args results in an empty tuple', t => {
   t.plan(1)
   const input  = Tuple()
-  t.same(Tuple().toStr(), `()`)
+  t.deepEqual(Tuple().toStr(), `()`)
 })
 
 // NOTE This is driving me nuts, I cannot get it pick up the errors
@@ -27,14 +27,14 @@ test('To arr returns an actual arr representation, which can be mutated as norma
   t.plan(1)
   const arr = Tuple(1,2,3).toArr()
   arr[0] = `foo`
-  t.same(arr[0], `foo`)
+  t.deepEqual(arr[0], `foo`)
 })
 
 test('toStr returns a string representation', t => {
   t.plan(1)
   const input  = Tuple(1,2,3).toStr()
   const output = `(1,2,3)`
-  t.same(input, output)
+  t.deepEqual(input, output)
 })
 
 // Because they are objects, still no way to simply test for equality:
@@ -56,32 +56,32 @@ test('Two tuples with same values in different order are unequal', t => {
 test('Allows appending a value to end of the tuple, returning a new tuple', t => {
   t.plan(1)
   const input  = Tuple(1,2,3).append(4)
-  t.same(input, [1,2,3,4])
+  t.deepEqual(input, [1,2,3,4])
 })
 
 test('Allows insertion of a value at a specified index, returning a new tuple', t => {
   t.plan(1)
   const input  = Tuple(1,2,3).insertAt(0, 0)
-  t.same(input, [0,1,2,3])
+  t.deepEqual(input, [0,1,2,3])
 })
 
 
 test('Allows deletion of a value at a specified index, returning a new tuple', t => {
   t.plan(1)
   const input  = Tuple(1,2,3).deleteAt(0)
-  t.same(input, [2,3])
+  t.deepEqual(input, [2,3])
 })
 
 test('Allows population of an empty tuple with repeated values via the `duplicate()` method', t => {
   t.plan(1)
   const input  = Tuple().duplicate(3,3)
-  t.same(input, [3,3,3])
+  t.deepEqual(input, [3,3,3])
 })
 
 test('Creates a Tuple with repeated values via `Tuple.duplicate()`', t => {
   t.plan(1)
   const input  = Tuple.duplicate(3,3)
-  t.same(input, [3,3,3])
+  t.deepEqual(input, [3,3,3])
 })
 
 test('Allows pattern matching as normal', t => {
@@ -96,11 +96,11 @@ test('Converts a date to a tuple', t => {
   t.plan(1)
   const input  = Tuple.fromDate(new Date(2016, 1, 18))
   const output = [2016, 1, 18]
-  t.same(input, output)
+  t.deepEqual(input, output)
 })
 
 test('Converts a date tuple to a date', t => {
   t.plan(1)
   const input = Tuple.toDate(Tuple([2016, 1, 18]))
-  t.same(input, new Date(2016, 1, 18))
+  t.deepEqual(input, new Date(2016, 1, 18))
 })
