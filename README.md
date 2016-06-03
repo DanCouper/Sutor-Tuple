@@ -1,5 +1,9 @@
 # Sutor-Tuple
 
+**NOTE** not to be used until I've ensured sane CJS imports: this module directly exports a factory. Under ES6, no issues: `import Tuple from 'sutor-tuple'`. But if i do `require('sutor-tuple')`, then try to use `Tuple(1,2,3)`, function does not exist. If I do `var Tuple = require('sutor-tuple')`, it works, but then I need to do `Tuple.Tuple(1,2,3)`. I *can* do `const { Tuple } = require('sutor-tuple')`, but this is not optimal.
+
+---
+
 [![Build Status](https://semaphoreci.com/api/v1/dancouper/sutor-tuple/branches/master/badge.svg)](https://semaphoreci.com/dancouper/sutor-tuple)
 
 [![Coverage Status](https://coveralls.io/repos/github/DanCouper/Sutor-Tuple/badge.svg?branch=master)](https://coveralls.io/github/DanCouper/Sutor-Tuple?branch=master)
