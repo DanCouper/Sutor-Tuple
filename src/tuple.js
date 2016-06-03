@@ -9,7 +9,7 @@
  * Similarly, when no arguments are passed, it is important that
  * this is converted to an empty Array so all methods operate correctly.
  */
-export default function Tuple(...args) {
+export function Tuple(...args) {
   /* Var used to hold the internal representation of the Tuple. */
   let _tuple
   /* Ensure the function used to create the Tuple

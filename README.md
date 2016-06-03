@@ -6,6 +6,14 @@
 
 A tiny tuple implementation in JS, leveraging frozen arrays. May be of some use to someone. Needs work. Won't be terribly efficient. Includes translation to/from dates (that's *dates*, **not** *time* or *datetime*).
 
+## Usage
+
+
+`npm i --save sutor-tuple` or similar in project route, then just `import Tuple from 'sutor-tuple'` (or some flavour of `require('sutor-tuple')`).
+
+`Tuple()` is a factory function, and does not need to be called with `new`. I can instantiate a tuple from either an array or a list of arguments - `Tuple(1,2,3)` and `Tuple([1,2,3])` are both valid.
+
+
 ## Implementation notes
 
 Arrays are used to represent the Tuples, as opposed to implementing by using Objects with an internal `tuple` property. This allows the tuple object to retain the standard accessor/enumeration methods, and vastly simplified both the implementation of the attached methods and the testing process.
@@ -17,7 +25,7 @@ Array mutator methods will fail (with an error in strict mode; if the module is 
 Array enumerator methods will work fine, but note they will act as normal and return Arrays, not Tuples; I didn't think there was much point reimplementing Tuple-specific enumerator methods beyond those included.
 
 
-##  Methods
+##  Static Methods
 
 ### `Tuple(...args)`
 
@@ -62,9 +70,10 @@ Given a tuple of the form `(year, month, date)`, returns a Javascript `Date` obj
 1986-04-25T00:00:00.000Z
 ```
 
----
 
-### `.append(val)`
+## Prototype Methods
+
+### `Tuple.prototype.append(val)`
 
 Returns a new Tuple with the specified value appended to the original. Equivalent to `Array.prototype.push`, but returns the tuple.
 
@@ -74,7 +83,7 @@ Returns a new Tuple with the specified value appended to the original. Equivalen
 [1, 2, 3, 4]
 ```
 
-### `.deleteAt(index)`
+### `Tuple.prototype.deleteAt(index)`
 
 Returns a new Tuple, less the value at the index specified.
 
@@ -84,7 +93,7 @@ Returns a new Tuple, less the value at the index specified.
 [1, 2]
 ```
 
-### `.duplicate(val, n)`
+### `Tuple.prototype.duplicate(val, n)`
 
 Prototype version of `Tuple.duplicate()`, allowing it to be chained to other Tuple methods. Fills an empty Tuple with `n` of `val`.
 
@@ -94,7 +103,7 @@ Prototype version of `Tuple.duplicate()`, allowing it to be chained to other Tup
 ['foo', 'foo', 'foo']
 ```
 
-### `.eq(tuple2)`
+### `Tuple.prototype.eq(tuple2)`
 
 Checks the tuple against another tuple, returns true if all values are identical and in the same order.
 
@@ -107,7 +116,7 @@ true
 false
 ```
 
-### `.insertAt(index, val)`
+### `Tuple.prototype.insertAt(index, val)`
 
 Returns a new Tuple, with a value added at the index specified.
 
@@ -117,7 +126,7 @@ Returns a new Tuple, with a value added at the index specified.
 [0, 1, 2, 3]
 ```
 
-### `.toArr()`
+### `Tuple.prototype.toArr()`
 
 Returns a proper [fully mutable] Array version of the Tuple.
 
@@ -132,7 +141,7 @@ Returns a proper [fully mutable] Array version of the Tuple.
 [0, 2, 3]
 ```
 
-### `.toStr()`
+### `Tuple.prototype.toStr()`
 
 Returns a string representation of the Tuple.
 
